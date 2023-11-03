@@ -1,0 +1,149 @@
+<style>
+    /*Neo Brutalism pricing card*/
+    .card {
+  width: 280px;
+  height: 360px;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+  top:75;
+}
+
+.card-inner {
+  width: inherit;
+  height: inherit;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.card:hover {
+  transform: scale(1.04) rotate(1deg);
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(#6c20b7,#892584);
+  border-radius: 50%;
+  position: absolute;
+  animation: move-up6 2s ease-in infinite alternate-reverse;
+}
+
+.circle:nth-child(1) {
+  top: -25px;
+  left: -25px;
+}
+
+.circle:nth-child(2) {
+  bottom: -25px;
+  right: -25px;
+  animation-name: move-down1;
+}
+
+@keyframes move-up6 {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes move-down1 {
+  to {
+    transform: translateY(10px);
+  }
+}
+/*Card content*/
+.calculator {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        .calculator input[type="button"] {
+            width: 50px;
+            height: 40px;
+            margin: 2px;
+            background: #957fe6;
+        }
+
+        .calculator input[type="text"] {
+            width: 100%;
+        
+            margin-bottom: 13px;
+        }
+
+        .calculator input[type="button"]:hover {
+            background: #c3cccb;
+        }
+
+        .row {
+            display: flex;
+        }
+
+
+</style>
+
+<body style="background-image: url(https://i.pinimg.com/originals/f0/c6/ca/f0c6cac86c1f1b870b390dc4eb4a06a5.gif) ; background-repeat:repeat-x ">
+<div class="card" >
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="card-inner" style="background-image: url(https://i.pinimg.com/564x/d5/41/4c/d5414cc0f52131c42078a39738a63673.jpg);">
+    <h3> <center>Calculator</center></h3> <div class="calculator">
+        
+        <input type="text" placeholder="Result" style="padding: 10;" height="20" id="display" disabled><br>
+
+        <div class="row">
+            <input type="button" value="7" onclick="appendToDisplay('7')">
+            <input type="button" value="8" onclick="appendToDisplay('8')">
+            <input type="button" value="9" onclick="appendToDisplay('9')">
+            <input type="button" value="/" onclick="appendToDisplay('/')">
+        </div>
+        <div class="row">
+            <input type="button" value="4" onclick="appendToDisplay('4')">
+            <input type="button" value="5" onclick="appendToDisplay('5')">
+            <input type="button" value="6" onclick="appendToDisplay('6')">
+            <input type="button" value="*" onclick="appendToDisplay('*')">
+        </div>
+        <div class="row">
+            <input type="button" value="1" onclick="appendToDisplay('1')">
+            <input type="button" value="2" onclick="appendToDisplay('2')">
+            <input type="button" value="3" onclick="appendToDisplay('3')">
+            <input type="button" value="-" onclick="appendToDisplay('-')">
+        </div>
+        <div class="row">
+            <input type="button" value="0" onclick="appendToDisplay('0')">
+            <input type="button" value="." onclick="appendToDisplay('.')">
+            <input type="button" value="C" onclick="clearDisplay()">
+            <input type="button" value="+" onclick="appendToDisplay('+')">
+        </div>
+        <div class="row">
+            
+            <input type="button" value="="  onclick="calculate()">
+            <input type="button" value="Enter"  onclick="calculate()">
+        </div>
+       
+    </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function calculate() {
+            try {
+                const result = eval(document.getElementById('display').value);
+                document.getElementById('display').value = result;
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+    </script>
+    </div>
+    </div>
+</body>
